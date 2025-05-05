@@ -13,7 +13,7 @@ function determinarTurno(hora) {
   }
   
   function solicitarHora() {
-    const horaStr = prompt("Bienvenido! ¿A qué hora desea comer? (Ingrese la hora en formato 24h, por ejemplo 9, 14:30, 20:00)");
+    const horaStr = prompt("Bienvenid@s! ¿A qué hora desea/n comer? (Ingrese/n la hora en formato HH:mm, por ejemplo, 14:30, 20:00)");
     if (!horaStr) {
       alert("Entrada vacía, por favor intente nuevamente.");
       return solicitarHora();
