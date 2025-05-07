@@ -19,7 +19,7 @@ function determinarTurno(hora) {
       return solicitarHora();
     }
     const horaNum = parseFloat(horaStr.replace(',', '.'));
-    if (isNaN(horaNum) || horaNum < 0 || horaNum >= 24) {
+    if (isNaN(horaNum) || horaNum < 0 || horaNum >= 23) {
       alert("Por favor, ingrese una hora válida entre 0 y 23");
       return solicitarHora();
     }
