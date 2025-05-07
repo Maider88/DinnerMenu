@@ -116,27 +116,41 @@ function determinarTurno(hora) {
       }
     } while (!turno);
   
-    const menu = mostrarMenu(turno);
-    const nombreMenu = turno;
+  const menu = mostrarMenu(turno);
+
+  let totalPrimero = 0;
+  let totalSegundo = 0;
+  let totalPostre = 0;
+
   
-    let totalFactura = 0;
+  const primerPlato = seleccionarPlatoPorNombre(menu.Primero, "primer plato");
+  const precioPrimero = obtenerPrecio(primerPlato);
+  totalPrimero += precioPrimero;
+
   
-    const primerPlato = seleccionarPlatoPorNombre(menu.Primero, "primer plato");
-    totalFactura += obtenerPrecio(primerPlato);
+  const segundoPlato = seleccionarPlatoPorNombre(menu.Segundo, "segundo plato");
+  const precioSegundo = obtenerPrecio(segundoPlato);
+  totalSegundo += precioSegundo;
+
   
+  const postre = seleccionarPlatoPorNombre(menu.Postre, "postre");
+  const precioPostre = obtenerPrecio(postre);
+  totalPostre += precioPostre;
+
+  const totalFactura = totalPrimero + totalSegundo + totalPostre;
+
   
-    const segundoPlato = seleccionarPlatoPorNombre(menu.Segundo, "segundo plato");
-    totalFactura += obtenerPrecio(segundoPlato);
+  let factura = `
+Su consumo ha sido el siguiente:
+Primer plato: ${primerPlato} 
+Segundo plato: ${segundoPlato}
+Postre: ${postre}
+-------------------------
+Total: €${totalFactura.toFixed(2)}
+`;
   
+ alert(factura);
+ alert("Gracias por haber comido en nuestro restaurante. ¡Que pase un agradable día!");
+}  
   
-    const postre = seleccionarPlatoPorNombre(menu.Postre, "postre");
-    totalFactura += obtenerPrecio(postre);
-    
-  
-    alert(`Su factura total es: €${totalFactura.toFixed(2)}`);
-    alert("Gracias por haber comido en nuestro restaurante. ¡Que pase un agradable día!");
-  }
-  
-  main();
-  
-  
+main();
